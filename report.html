@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Risk Report | ScamShield{% endblock %}
+{% block content %}
+<section class="page-head"><span class="eyebrow">EXPLAIN</span><h1>Your ScamShield Risk Report</h1><p>Review the detected warning signals and decide what to verify next.</p></section>
+
+<section id="reportEmpty" class="empty-state">
+  <div class="big-icon">🔍</div>
+  <h2>No analysis yet</h2>
+  <p>Analyze an offer first to generate your risk report.</p>
+  <a class="btn primary" href="/analyze">Analyze an Offer</a>
+</section>
+
+<section id="reportContent" class="hidden">
+  <div class="report-top">
+    <div class="score-box">
+      <span>RISK SCORE</span>
+      <strong id="score">0</strong><small>/100</small>
+    </div>
+    <div class="level-box" id="levelBox">
+      <span>ASSESSMENT</span>
+      <strong id="riskLevel">—</strong>
+      <p id="recommendation"></p>
+    </div>
+  </div>
+
+  <div class="section-title left"><span class="eyebrow">DETECTED SIGNALS</span><h2>Why this offer needs attention</h2></div>
+  <div id="signals" class="signal-list"></div>
+
+  <div class="next-actions">
+    <div><h3>What should you do?</h3><p>Use the verification checklist before sending money or sensitive information.</p></div>
+    <a class="btn primary" href="/verify">Open Verification Checklist →</a>
+  </div>
+
+  <p class="disclaimer" id="disclaimer"></p>
+  <button class="btn secondary" onclick="window.location.href='/analyze'">Analyze another offer</button>
+</section>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}ScamShield | Student Safety{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow">🛡️ AI-ASSISTED STUDENT SAFETY</span>
+    <h1>Don't let a fake job <span>cost you money.</span></h1>
+    <p>ScamShield helps students identify suspicious job and internship offers before they share money or sensitive information.</p>
+    <div class="actions">
+      <span class="login-flow-note">Login above to continue directly to the Analyze page.</span>
+    </div>
+    <small>⚠️ Risk assessment, not a guarantee.</small>
+  </div>
+
+  <div class="home-login-card">
+    <div class="login-brand">🛡️</div>
+    <span class="eyebrow">SCAMSHIELD STUDENT ACCESS</span>
+    <h2>Welcome back.</h2>
+    <p class="login-subtitle">Log in directly from the home page to access the ScamShield verification assistant.</p>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="login-error">⚠️ {{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('login') }}" class="login-form">
+      <label for="home-email">Email address</label>
+      <input id="home-email" name="email" type="email" placeholder="you@example.com" required>
+
+      <label for="home-password">Password</label>
+      <input id="home-password" name="password" type="password" placeholder="Enter your password" required>
+
+      <button class="btn primary full" type="submit">🔐 Login &amp; Continue to Analyze</button>
+    </form>
+
+    <div class="demo-login">
+      <b>Demo account for evaluation</b>
+      <span>Email: student@gmail.com</span>
+      <span>Password: std@123</span>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="section-title"><span class="eyebrow">THE PROBLEM</span><h2>Fake opportunities can look <span>completely real.</span></h2><p>Recruitment scams can use pressure, payment requests, suspicious links and requests for sensitive information.</p></div>
+  <div class="cards three">
+    <article class="card"><div class="big-icon">💰</div><h3>Payment Requests</h3><p>Registration, processing, training or security fees can be a major warning sign.</p></article>
+    <article class="card"><div class="big-icon">⏰</div><h3>Urgency</h3><p>Pressure to act immediately can reduce the time available for independent verification.</p></article>
+    <article class="card"><div class="big-icon">🔐</div><h3>Sensitive Data</h3><p>Unverified recruiters should not receive passwords, OTPs, banking credentials or similar sensitive information.</p></article>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="section-title"><span class="eyebrow">KEY FEATURES</span><h2>More than just a <span>scam score.</span></h2></div>
+  <div class="cards three">
+    <article class="card"><div class="big-icon">💳</div><h3>Payment Detection</h3><p>Flags common fee and money-request patterns.</p></article>
+    <article class="card"><div class="big-icon">⚡</div><h3>Urgency Detection</h3><p>Identifies pressure language that deserves extra caution.</p></article>
+    <article class="card"><div class="big-icon">🔗</div><h3>URL Signals</h3><p>Checks basic URL patterns for suspicious indicators.</p></article>
+    <article class="card"><div class="big-icon">🧠</div><h3>Risk Explanation</h3><p>Explains detected signals in student-friendly language.</p></article>
+    <article class="card"><div class="big-icon">📋</div><h3>Verification Checklist</h3><p>Provides practical next steps before proceeding.</p></article>
+    <article class="card"><div class="big-icon">📚</div><h3>Safety Education</h3><p>Learn common recruitment scam warning signs.</p></article>
+  </div>
+</section>
+
+<section class="cta"><span class="eyebrow">READY TO CHECK?</span><h2>Have an internship offer?<br><span>Check it before you trust it.</span></h2><p>Paste the message and optional URL to begin.</p><a class="btn primary" href="/analyze">🔍 Analyze an Offer</a></section>
+{% endblock %}
