@@ -83,19 +83,19 @@ http://127.0.0.1:5000
 
 ### Home / Login
 
-!\[Home](screenshots/home.png)
+![Home](screenshots/home.png)
 
 ### Analyze Offer
 
-!\[Analyze](screenshots/analyze.png)
+![Analyze](screenshots/analyze.png)
 
 ### Risk Report
 
-!\[Risk Report](screenshots/report.png)
+![Risk Report](screenshots/report.png)
 
 ### Verification Checklist
 
-!\[Verify](screenshots/verify.png)
+![Verify](screenshots/verify.png)
 
 \---
 
