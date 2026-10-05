@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}ScamShield{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="navbar">
+  <a class="brand" href="/">🛡️ <span>ScamShield</span></a>
+  <nav>
+    <a href="/" class="{{ 'active' if request.path == '/' else '' }}">Home</a>
+   
+    <a href="/verify" class="{{ 'active' if request.path == '/verify' else '' }}">Verify</a>
+    <a href="/safety" class="{{ 'active' if request.path == '/safety' else '' }}">Safety Guide</a>
+  </nav>
+
+</header>
+
+<main>{% block content %}{% endblock %}</main>
+
+<footer>
+  <div class="footer-brand">🛡️ ScamShield</div>
+  <p> Internship & Job Offer Verification Assistant</p>
+  <p class="footer-note">Risk assessment, not a guarantee. Verify opportunities independently.</p>
+  <div class="footer-bottom">© 2026 ScamShield • Student Cyber Safety Prototype</div>
+</footer>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

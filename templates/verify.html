@@ -1,0 +1,487 @@
+{% extends "base.html" %}
+
+{% block title %}Verify | ScamShield{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+    <div>
+        <p class="eyebrow">VERIFY</p>
+        <h1>Verification Checklist</h1>
+        <p class="page-subtitle">
+            Complete these checks before trusting a job or internship opportunity.
+        </p>
+    </div>
+</section>
+
+<section class="verify-layout">
+
+    <div class="verify-card">
+
+        <div class="verify-header">
+            <div>
+                <h2>Before You Trust the Offer</h2>
+                <p>Go through each check carefully.</p>
+            </div>
+
+            <div class="progress-count" id="progressText">
+                0 of 6 checks completed
+            </div>
+        </div>
+
+        <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <div class="checklist">
+
+            <label class="check-item">
+                <input type="checkbox" class="verify-check">
+                <span class="custom-check"></span>
+                <span class="check-content">
+                    <strong>Verify the company independently</strong>
+                    <small>
+                        Visit the company's official website and confirm that the
+                        job or internship actually exists.
+                    </small>
+                </span>
+            </label>
+
+            <label class="check-item">
+                <input type="checkbox" class="verify-check">
+                <span class="custom-check"></span>
+                <span class="check-content">
+                    <strong>Verify the recruiter</strong>
+                    <small>
+                        Check whether the recruiter can be confirmed through an
+                        official company email or professional profile.
+                    </small>
+                </span>
+            </label>
+
+            <label class="check-item">
+                <input type="checkbox" class="verify-check">
+                <span class="custom-check"></span>
+                <span class="check-content">
+                    <strong>Never pay suspicious fees</strong>
+                    <small>
+                        Be cautious about registration, training, security,
+                        processing, or placement fees.
+                    </small>
+                </span>
+            </label>
+
+            <label class="check-item">
+                <input type="checkbox" class="verify-check">
+                <span class="custom-check"></span>
+                <span class="check-content">
+                    <strong>Protect sensitive information</strong>
+                    <small>
+                        Never share passwords, OTPs, UPI PINs, banking credentials,
+                        or unnecessary identity documents.
+                    </small>
+                </span>
+            </label>
+
+            <label class="check-item">
+                <input type="checkbox" class="verify-check">
+                <span class="custom-check"></span>
+                <span class="check-content">
+                    <strong>Check the job details</strong>
+                    <small>
+                        Look for unrealistic salary promises, guaranteed jobs,
+                        urgent deadlines, or unclear company information.
+                    </small>
+                </span>
+            </label>
+
+            <label class="check-item">
+                <input type="checkbox" class="verify-check">
+                <span class="custom-check"></span>
+                <span class="check-content">
+                    <strong>Ask for a second opinion</strong>
+                    <small>
+                        If anything feels suspicious, discuss the opportunity with
+                        a trusted person, mentor, or college placement office.
+                    </small>
+                </span>
+            </label>
+
+        </div>
+
+        <div class="completion-message" id="completionMessage">
+            <div class="completion-icon">✓</div>
+            <div>
+                <h3>All checks completed</h3>
+                <p>
+                    You have completed the verification checklist. Continue only
+                    if the opportunity can be independently verified.
+                </p>
+            </div>
+        </div>
+
+        <div class="verify-actions">
+            <a href="/report" class="secondary-btn">← Back to Risk Report</a>
+            <a href="/analyze" class="primary-btn">Analyze Another Offer</a>
+        </div>
+
+        <div class="disclaimer">
+            <strong>Remember:</strong>
+            ScamShield provides a risk assessment, not a guarantee.
+            Always verify independently before sending money or sensitive information.
+        </div>
+
+    </div>
+
+    <aside class="remember-card">
+
+        <div class="remember-icon">🛡️</div>
+
+        <h3>Remember</h3>
+
+        <p>
+            A professional-looking message is not proof that an opportunity
+            is genuine.
+        </p>
+
+        <div class="remember-rule">
+            <strong>STOP</strong>
+            <span>Don't rush into a decision.</span>
+        </div>
+
+        <div class="remember-rule">
+            <strong>VERIFY</strong>
+            <span>Check the company and recruiter independently.</span>
+        </div>
+
+        <div class="remember-rule">
+            <strong>DECIDE</strong>
+            <span>Proceed only when you are comfortable with the evidence.</span>
+        </div>
+
+    </aside>
+
+</section>
+
+<style>
+.page-header {
+    margin-bottom: 25px;
+}
+
+.eyebrow {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    margin-bottom: 8px;
+}
+
+.page-header h1 {
+    margin-bottom: 8px;
+}
+
+.page-subtitle {
+    max-width: 720px;
+    line-height: 1.6;
+    opacity: .75;
+}
+
+.verify-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 22px;
+    align-items: start;
+}
+
+.verify-card,
+.remember-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+
+.verify-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.verify-header h2 {
+    margin: 0 0 5px;
+}
+
+.verify-header p {
+    margin: 0;
+    opacity: .7;
+}
+
+.progress-count {
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.progress-track {
+    height: 9px;
+    background: #e8edf2;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 22px;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #16834b;
+    border-radius: 20px;
+    transition: width .25s ease;
+}
+
+.checklist {
+    display: grid;
+    gap: 12px;
+}
+
+.check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 16px;
+    border: 1px solid #e1e6ec;
+    border-radius: 13px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.check-item:hover {
+    border-color: #aeb9c7;
+    transform: translateY(-1px);
+}
+
+.check-item.checked {
+    background: #f1faf5;
+    border-color: #a9d8bb;
+}
+
+.check-item input {
+    position: absolute;
+    opacity: 0;
+}
+
+.custom-check {
+    width: 21px;
+    height: 21px;
+    flex: 0 0 21px;
+    border: 2px solid #aeb8c5;
+    border-radius: 6px;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.check-item.checked .custom-check {
+    background: #16834b;
+    border-color: #16834b;
+}
+
+.check-item.checked .custom-check::after {
+    content: "✓";
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.check-content strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.check-content small {
+    display: block;
+    line-height: 1.5;
+    opacity: .7;
+}
+
+.completion-message {
+    display: none;
+    align-items: flex-start;
+    gap: 13px;
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 13px;
+    background: #f1faf5;
+    border: 1px solid #a9d8bb;
+}
+
+.completion-message.show {
+    display: flex;
+}
+
+.completion-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #16834b;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.completion-message h3 {
+    margin: 0 0 5px;
+}
+
+.completion-message p {
+    margin: 0;
+    line-height: 1.5;
+    opacity: .75;
+    font-size: 13px;
+}
+
+.verify-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 22px;
+    flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.primary-btn {
+    background: #16834b;
+    color: #fff;
+}
+
+.secondary-btn {
+    background: #fff;
+    color: inherit;
+    border: 1px solid #d7dee7;
+}
+
+.disclaimer {
+    margin-top: 20px;
+    padding: 14px;
+    border-radius: 11px;
+    background: #fff8e7;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.remember-icon {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.remember-card h3 {
+    margin-bottom: 8px;
+}
+
+.remember-card > p {
+    line-height: 1.55;
+    opacity: .72;
+}
+
+.remember-rule {
+    padding: 13px 0;
+    border-top: 1px solid #e8edf2;
+}
+
+.remember-rule strong {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+}
+
+.remember-rule span {
+    font-size: 13px;
+    line-height: 1.45;
+    opacity: .72;
+}
+
+@media (max-width: 800px) {
+    .verify-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .verify-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .verify-actions {
+        flex-direction: column;
+    }
+
+    .verify-actions a {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const checks = document.querySelectorAll(".verify-check");
+    const progressFill = document.getElementById("progressFill");
+    const progressText = document.getElementById("progressText");
+    const completionMessage = document.getElementById("completionMessage");
+
+    function updateProgress() {
+
+        const completed = document.querySelectorAll(
+            ".verify-check:checked"
+        ).length;
+
+        const total = checks.length;
+        const percentage = (completed / total) * 100;
+
+        progressFill.style.width = percentage + "%";
+
+        progressText.textContent =
+            completed + " of " + total + " checks completed";
+
+        checks.forEach(function (check) {
+            const item = check.closest(".check-item");
+
+            if (check.checked) {
+                item.classList.add("checked");
+            } else {
+                item.classList.remove("checked");
+            }
+        });
+
+        if (completed === total) {
+            completionMessage.classList.add("show");
+        } else {
+            completionMessage.classList.remove("show");
+        }
+    }
+
+    checks.forEach(function (check) {
+        check.addEventListener("change", updateProgress);
+    });
+
+    updateProgress();
+});
+</script>
+
+{% endblock %}
